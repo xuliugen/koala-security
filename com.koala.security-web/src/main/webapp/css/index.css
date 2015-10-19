@@ -1,0 +1,101 @@
+select{
+    padding:4px;
+    margin:2px;
+    font-size:16px;
+    min-height:20px;
+    min-width:100px;
+}
+.nav-stacked{
+    position:relative;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+
+}
+.folder > a{
+    background:#ccc;
+}
+.leaf_node > a .glyphicon{
+    display:none;
+}
+.menu_name{
+    font-size:16px;
+}
+.leaf_node{
+    text-align:center;
+}
+.leaf_node span{
+    font-size:14px !important;
+}
+.user_name{
+    color:#fff;
+}
+.yhmc{
+    padding-top:10px;
+    float:left;
+}
+.m_left{
+    margin-left:20px;
+}
+/*
+*阶梯效果
+*/
+.leaf_node:hover{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    z-index: 3;
+
+}
+.nav-stacked a.active-1 {
+    -webkit-transform: scale(1.1) translateX(24px);
+    -moz-transform: scale(1.1) translateX(24px);
+    -ms-transform: scale(1.1) translateX(24px);
+    -o-transform: scale(1.1) translateX(24px);
+    transform: scale(1.1) translateX(24px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    z-index: 3;
+}
+.nav-stacked a.active-2 {
+    -webkit-transform: scale(1.07) translateX(12px);
+    -moz-transform: scale(1.07) translateX(12px);
+    -ms-transform: scale(1.07) translateX(12px);
+    -o-transform: scale(1.07) translateX(12px);
+    transform: scale(1.07) translateX(12px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.nav-stacked a.active-3 {
+    -webkit-transform: scale(1.04) translateX(4px);
+    -moz-transform: scale(1.04) translateX(4px);
+    -ms-transform: scale(1.04) translateX(4px);
+    -o-transform: scale(1.04) translateX(4px);
+    transform: scale(1.04) translateX(4px);
+    z-index: 1;
+}
+
+
+#btn1{
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    position: relative;
+    float:right;
+    top: -3px;
+    left:5px;
+}
+
+label{
+    padding-right:3px;
+}
+
+div.btn-group > span {
+    font-size: 15px;
+    line-height: 39px;
+    padding: 0 2px 0px 3px;
+    color: #fff;
+}

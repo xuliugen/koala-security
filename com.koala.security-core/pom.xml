@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
+    <modelVersion>4.0.0</modelVersion>  
+    <parent> 
+        <groupId>com.koala.security</groupId>  
+        <artifactId>com.koala.security</artifactId>  
+        <version>1.0.0-SNAPSHOT</version> 
+    </parent>  
+    <artifactId>com.koala.security-core</artifactId>  
+    <name>com.koala.security-core</name>  
+    <packaging>jar</packaging>  
+    <url>http://maven.apache.org</url>  
+    <properties> 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+        <project.type>bizModel</project.type>  
+        <base.package>com.koala.security.com.koala.security.core.domain</base.package> 
+    </properties>  
+    <dependencies> 
+        <dependency> 
+            <groupId>junit</groupId>  
+            <artifactId>junit</artifactId>  
+            <scope>test</scope> 
+        </dependency>  
+        <dependency> 
+            <groupId>org.openkoala.koalacommons</groupId>  
+            <artifactId>koala-commons-test-support</artifactId>  
+            <version>${koala.version}</version>  
+            <scope>test</scope> 
+        </dependency>  
+        <dependency> 
+            <groupId>org.hibernate</groupId>  
+            <artifactId>hibernate-validator</artifactId> 
+        </dependency>  
+        <!-- 加入对DOMAIN层的依赖 -->  
+        <dependency> 
+            <groupId>org.dayatang.dddlib</groupId>  
+            <artifactId>dddlib-domain</artifactId> 
+        </dependency>  
+        <dependency> 
+            <groupId>org.openkoala.koalacommons</groupId>  
+            <artifactId>koala-commons-domain</artifactId> 
+        </dependency>  
+        <!-- 加入CONF依赖 -->  
+        <dependency> 
+            <groupId>com.koala.security</groupId>  
+            <artifactId>com.koala.security-conf</artifactId>  
+            <version>${project.parent.version}</version>  
+            <type>test-jar</type>  
+            <scope>test</scope> 
+        </dependency>  
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>17.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+    </dependencies> 
+</project>

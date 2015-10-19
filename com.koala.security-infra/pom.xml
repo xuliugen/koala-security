@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
+    <modelVersion>4.0.0</modelVersion>  
+    <parent> 
+        <groupId>com.koala.security</groupId>  
+        <artifactId>com.koala.security</artifactId>  
+        <version>1.0.0-SNAPSHOT</version> 
+    </parent>  
+    <artifactId>com.koala.security-infra</artifactId>  
+    <name>com.koala.security-infra</name>  
+    <packaging>jar</packaging>  
+    <url>http://maven.apache.org</url>  
+    <properties> 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+        <project.type>infra</project.type>  
+        <base.package>com.koala.security.com.koala.security.infra</base.package> 
+    </properties>  
+    <dependencies> 
+        <dependency> 
+            <groupId>com.koala.security</groupId>  
+            <artifactId>com.koala.security-core</artifactId>  
+            <version>${project.parent.version}</version> 
+        </dependency>  
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+    </dependencies> 
+</project>

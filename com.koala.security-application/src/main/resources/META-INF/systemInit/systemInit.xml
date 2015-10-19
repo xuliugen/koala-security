@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<systemInit xmlns="http://www.example.org/systemInit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/systemInit systemInit.xsd ">
+
+	<user name="考拉" username="koala" description="" createOwner="system" />
+	<role name="超级管理员" description="拥有系统所有权限" />
+	<menuResource id="10" name="用户角色管理 " description="包含用户、角色管理等" menuIcon="glyphicon  glyphicon-list-alt" />
+	<menuResource id="20" pid="10" name="用户管理" url="/pages/auth/user-list.jsp" menuIcon="glyphicon  glyphicon-list-alt" />
+	<menuResource id="30" pid="10" name="角色管理" url="/pages/auth/role-list.jsp" menuIcon="glyphicon  glyphicon-list-alt" />
+    <menuResource id="35" pid="10" name="权限管理" url="/pages/auth/permission-list.jsp" menuIcon="glyphicon  glyphicon-list-alt" notGrant="true"/>
+    <menuResource id="40" name="资源管理" description="包含菜单、URL、页面元素管理等" menuIcon="glyphicon  glyphicon-list-alt" />
+	<menuResource id="50" pid="40" name="菜单管理" url="/pages/auth/menu-list.jsp" menuIcon="glyphicon  glyphicon-list-alt" />
+	<menuResource id="60" pid="40" name="URL访问管理" url="/pages/auth/url-list.jsp" menuIcon="glyphicon  glyphicon-list-alt" />
+	<menuResource id="70" pid="40" name="页面元素管理" url="/pages/auth/page-list.jsp" menuIcon="glyphicon  glyphicon-list-alt" />
+
+	
+	<urlAccessResource name="用户管理-所有" url="/auth/user/**"  />
+	<urlAccessResource name="用户管理-添加" url="/auth/employeeUser/add.koala" />
+	<urlAccessResource name="用户管理-更新" url="/auth/employeeUser/update.koala" />
+	<urlAccessResource name="用户管理-撤销" url="/auth/user/terminate.koala" />
+	<urlAccessResource name="用户管理-分页查询" url="/auth/employeeUser/pagingQuery.koala" />
+	<urlAccessResource name="用户管理-更新密码" url="/auth/user/updatePassword.koala" />
+	<urlAccessResource name="用户管理-重置密码" url="/auth/user/resetPassword.koala" />
+	<urlAccessResource name="用户管理-授权多个角色" url="/auth/user/grantRoles.koala" />
+	<urlAccessResource name="用户管理-授权一个角色" url="/auth/user/grantRole.koala" />
+	<urlAccessResource name="用户管理-授权多个权限" url="/auth/user/grantPermissions.koala" notGrant="true"/>
+	<urlAccessResource name="用户管理-授权一个权限" url="/auth/user/grantPermission.koala" notGrant="true"/>
+	<urlAccessResource name="用户管理-撤销多个权限" url="/auth/user/terminatePermissionsByUser.koala" notGrant="true"/>
+	<urlAccessResource name="用户管理-撤销一个权限" url="/auth/user/terminatePermissionByUser.koala" notGrant="true"/>
+	<urlAccessResource name="用户管理-撤销多个角色" url="/auth/user/suspend/terminateRolesByUser.koala" />
+	<urlAccessResource name="用户管理-撤销一个角色" url="/auth/user/terminateRoleByUser.koala" />
+	<urlAccessResource name="用户管理-激活" url="/auth/user/activate.koala" />
+	<urlAccessResource name="用户管理-激动所有" url="/auth/user/activates.koala" />
+	<urlAccessResource name="用户管理-挂起所有" url="/auth/user/suspends.koala" />
+	<urlAccessResource name="用户管理-查找授权的角色" url="/auth/employeeUser/pagingQueryGrantRoleByUserId.koala" />
+	<urlAccessResource name="用户管理-查找没有授权的角色" url="/auth/user/pagingQueryNotGrantRoles.koala" />
+	<urlAccessResource name="用户管理-查找授权的权限" url="/auth/employeeUser/pagingQueryGrantPermissionByUserId.koala" notGrant="true"/>
+	<urlAccessResource name="用户管理-查找没有授权的权限" url="/auth/user/pagingQueryNotGrantPermissions.koala" notGrant="true"/>
+    <urlAccessResource name="用户管理-查找用户详细" url="/auth/user/findInfoOfUser.koala"/>
+    <urlAccessResource name="用户管理-在某个范围下分配授权" url="/auth/employeeUser/grantAuthorityToActorInScope.koala" />
+    <urlAccessResource name="用户管理-在某个范围下撤销角色" url="/auth/employeeUser/terminateUserFromRoleInScope.koala" />
+    <urlAccessResource name="用户管理-在某个范围下撤销权限" url="/auth/employeeUser/terminateUserFromPermissionInScope.koala" />
+
+
+
+    <urlAccessResource name="角色管理-所有" url="/auth/role/**" />
+	<urlAccessResource name="角色管理-添加" url="/auth/role/add.koala" />
+	<urlAccessResource name="角色管理-修改" url="/auth/role/update.koala" />
+	<urlAccessResource name="角色管理-撤销" url="/auth/role/terminate.koala" />
+	<urlAccessResource name="角色管理-查询" url="/auth/role/pagingQuery.koala" />
+	<urlAccessResource name="角色管理-查询所有带选中的菜单" url="/auth/role/findMenuResourceTreeSelectItemByRoleId.koala" />
+	<urlAccessResource name="角色管理-授权菜单" url="/auth/role/grantMenuResourcesToRole.koala" />
+	<urlAccessResource name="角色管理-授权URL访问权限资源" url="/auth/role/grantUrlAccessResourcesToRole.koala" />
+	<urlAccessResource name="角色管理-撤销URL访问权限资源" url="/auth/role/terminateUrlAccessResourcesFromRole.koala" />
+	<urlAccessResource name="角色管理-查出已经授权的URL访问权限资源" url="/auth/role/pagingQueryGrantUrlAccessResourcesByRoleId.koala" />
+	<urlAccessResource name="角色管理-查出没有授权的URL访问权限资源" url="/auth/role/pagingQueryNotGrantUrlAccessResourcesByRoleId.koala" />
+	<urlAccessResource name="角色管理-撤销权限" url="/auth/role/terminatePermissionsFromRole.koala" notGrant="true"/>
+	<urlAccessResource name="角色管理-根据角色ID分页查询已经授权的权限" url="/auth/role/pagingQueryGrantPermissionsByRoleId.koala" notGrant="true"/>
+	<urlAccessResource name="角色管理-根据角色ID分页查询还未授权的权限" url="/auth/role/pagingQueryNotGrantPermissionsByRoleId.koala" notGrant="true"/>
+	<urlAccessResource name="角色管理-授权页面元素权限资源" url="/auth/role/grantPageElementResourcesToRole.koala" />
+	<urlAccessResource name="角色管理-撤销页面元素权限资源" url="/auth/role/terminatePageElementResourcesFromRole.koala" />
+	<urlAccessResource name="角色管理-根据角色ID分页查询已经授权的页面元素权限资源" url="/auth/role/pagingQueryGrantPageElementResourcesByRoleId.koala" />
+	<urlAccessResource name="角色管理-根据角色ID分页查询还未授权的页面元素权限资源" url="/auth/role/pagingQueryNotGrantPageElementResourcesByRoleId.koala" />
+	
+	<urlAccessResource name="权限管理-所有" url="/auth/permission/**" notGrant="true" />
+	<urlAccessResource name="权限管理-添加" url="/auth/permission/add.koala" notGrant="true" />
+	<urlAccessResource name="权限管理-修改" url="/auth/permission/update.koala" notGrant="true" />
+	<urlAccessResource name="权限管理-撤销" url="/auth/permission/terminate.koala" notGrant="true" />
+	<urlAccessResource name="权限管理-查询" url="/auth/permission/pagingQuery.koala" notGrant="true" />
+	<urlAccessResource name="权限管理-获取详情" url="/auth/permission/findInfoOfPermission.koala" notGrant="true" />
+	
+	<urlAccessResource name="菜单管理-所有" url="/auth/menu/**" />
+	<urlAccessResource name="菜单管理-添加" url="/auth/menu/add.koala" />
+	<urlAccessResource name="菜单管理-添加子菜单" url="/auth/menu/addChildToParent.koala" />
+	<urlAccessResource name="菜单管理-修改" url="/auth/menu/update.koala" />
+	<urlAccessResource name="菜单管理-撤销" url="/auth/menu/terminate.koala" />
+	<urlAccessResource name="菜单管理-查找菜单树" url="/auth/menu/findAllMenusTree.koala" />
+	<urlAccessResource name="菜单管理-授权权限" url="/auth/menu/grantPermisssionsToMenuResource.koala" />
+	<urlAccessResource name="菜单管理-撤销权限" url="/auth/menu/terminatePermissionsFromMenuResource.koala" notGrant="true"/>
+	<urlAccessResource name="菜单管理-查询已授权的权限" url="/auth/menu/pagingQueryGrantPermissionsByMenuResourceId.koala" notGrant="true" />
+	<urlAccessResource name="菜单管理-查询未授权的权限" url="/auth/menu/pagingQueryNotGrantPermissionsByMenuResourceId.koala" notGrant="true"/>
+	<urlAccessResource name="菜单管理-查询某角色下所有菜单" url="/auth/menu/findAllMenusByUserAsRole.koala" />
+	
+	<urlAccessResource name="URL访问管理-所有" url="/auth/url/**" />
+	<urlAccessResource name="URL访问管理-添加" url="/auth/url/add.koala" />
+	<urlAccessResource name="URL访问管理-更新" url="/auth/url/update.koala" />
+	<urlAccessResource name="URL访问管理-撤销" url="/auth/url/terminate.koala" />
+	<urlAccessResource name="URL访问管理-查询" url="/auth/url/pagingQuery.koala" />
+	<urlAccessResource name="URL访问管理-授权权限" url="/auth/url/grantPermisssionsToUrlAccessResource.koala" />
+	<urlAccessResource name="URL访问管理-撤销权限" url="/auth/url/terminatePermissionsFromUrlAccessResource.koala" notGrant="true" />
+	<urlAccessResource name="URL访问管理-查询已授权的权限" url="/auth/url/pagingQueryGrantPermissionsByUrlAccessResourceId.koala" notGrant="true"/>
+	<urlAccessResource name="URL访问管理-查询未授权的权限" url="/auth/url/pagingQueryNotGrantPermissionsByUrlAccessResourceId.koala" notGrant="true"/>
+	
+	<urlAccessResource name="页面元素-所有" url="/auth/page/**" />
+	<urlAccessResource name="页面元素-添加" url="/auth/page/add.koala" />
+	<urlAccessResource name="页面元素-修改" url="/auth/page/update.koala" />
+	<urlAccessResource name="页面元素-撤销" url="/auth/page/terminate.koala" />
+	<urlAccessResource name="页面元素-查询" url="/auth/page/pagingQuery.koala" />
+	<urlAccessResource name="页面元素-授予权限" url="/auth/page/grantPermisssionsToPageElementResource.koala" />
+	<urlAccessResource name="页面元素-撤销权限" url="/auth/page/terminatePermissionsFromPageElementResource.koala" notGrant="true"/>
+	<urlAccessResource name="页面元素-查询已授权的权限" url="/auth/page/pagingQueryGrantPermissionsByUrlAccessResourceId.koala" notGrant="true"/>
+	<urlAccessResource name="页面元素-查询未授权的权限" url="/auth/page/pagingQueryNotGrantPermissionsByPageElementResourceId.koala" notGrant="true"/>
+
+    <urlAccessResource name="组织机构管理-所有" url="/organization/**" />
+    <urlAccessResource name="组织机构管理-在某个公司下创建一个分公司" url="/organization/create-company.koala" />
+    <urlAccessResource name="组织机构管理-在某个机构下创建一个部门" url="/organization/create-department.koala" />
+    <urlAccessResource name="组织机构管理-更新公司信息" url="/organization/update-company.koala" />
+    <urlAccessResource name="组织机构管理-更新部门信息" url="/organization/update-department.koala" />
+    <urlAccessResource name="组织机构管理-获取组织机构树" url="/organization/org-tree.koala" />
+    <urlAccessResource name="组织机构管理-根据ID获得机构" url="/organization/get.koala" />
+    <urlAccessResource name="组织机构管理-撤销某个机构与某些员工的责任关系" url="/organization/terminate-eo-relations.koala" />
+    <urlAccessResource name="组织机构管理-撤销一个公司" url="/organization/terminate-company.koala" />
+    <urlAccessResource name="组织机构管理-撤销一个部门" url="/organization/terminate-department.koala" />
+
+    <urlAccessResource name="职务管理-所有" url="/job/**" />
+    <urlAccessResource name="职务管理-分页查询职务" url="/job/pagingquery.koala" />
+    <urlAccessResource name="职务管理-查询所有职务" url="/job/query-all.koala" />
+    <urlAccessResource name="职务管理-创建一个职务" url="/job/create.koala" />
+    <urlAccessResource name="职务管理-更新职务信息" url="/job/update.koala" />
+    <urlAccessResource name="职务管理-根据ID获得" url="/job/get/{id}.koala" />
+    <urlAccessResource name="职务管理-撤销某个职务" url="/job/terminate.koala" />
+    <urlAccessResource name="职务管理-撤销多个职务" url="/job/terminate-jobs.koala" />
+
+    <urlAccessResource name="岗位管理-所有" url="/post/**" />
+    <urlAccessResource name="岗位管理-创建一个岗位" url="/post/create.koala" />
+    <urlAccessResource name="岗位管理-更新岗位信息" url="/post/update.koala" />
+    <urlAccessResource name="岗位管理-根据机构查询岗位" url="/post/query-post-by-org.koala" />
+    <urlAccessResource name="岗位管理-根据机构分页查询岗位" url="/post/paging-query-post-by-org.koala" />
+    <urlAccessResource name="岗位管理-根据ID获得" url="/post/get/{id}.koala" />
+    <urlAccessResource name="岗位管理-撤销某个岗位" url="/post/terminate.koala" />
+    <urlAccessResource name="岗位管理-撤销多个岗位" url="/post/terminate-posts.koala" />
+
+    <urlAccessResource name="员工管理-所有" url="/employee/**" />
+    <urlAccessResource name="员工管理-分页查询" url="/employee/pagingquery.koala" />
+    <urlAccessResource name="员工管理-分页查询某个机构下的员工" url="/employee/pagingquery-by-org.koala" />
+    <urlAccessResource name="员工管理-调整某个员工的任职信息" url="/employee/transform-post.koala" />
+    <urlAccessResource name="员工管理-创建一个员工" url="/employee/create.koala" />
+    <urlAccessResource name="员工管理-更新某个员工的信息" url="/employee/update.koala" />
+    <urlAccessResource name="员工管理-根据ID获得" url="/employee/get/{id}.koala" />
+    <urlAccessResource name="员工管理-获得性别" url="/employee/genders.koala" />
+    <urlAccessResource name="员工管理-获得某个员工的任职信息" url="/employee/get-posts-by-employee.koala" />
+    <urlAccessResource name="员工管理-解雇员工" url="/employee/terminate.koala" />
+    <urlAccessResource name="员工管理-同时解雇多名员工" url="/employee/terminate-employees.koala" />
+
+    <pageElementResource name="用户管理-添加" url="userManagerAdd" />
+	<pageElementResource name="用户管理-修改" url="userManagerUpdate" />
+	<pageElementResource name="用户管理-撤销" url="userManagerTerminate" />
+	<pageElementResource name="用户管理-分配角色" url="userManagerGrantRole" />
+	<pageElementResource name="用户管理-分配权限" url="userManagerGrantPermission" notGrant="true" />
+	<pageElementResource name="用户管理-重置密码" url="userManagerResetPassword" />
+	<pageElementResource name="用户管理-挂起" url="userManagerSuspend" />
+	<pageElementResource name="用户管理-激活" url="userManagerActivate" />
+	<pageElementResource name="用户管理-高级查询" url="userManagerQuery" />
+	<pageElementResource name="角色管理-添加" url="roleManagerAdd" />
+	<pageElementResource name="角色管理-修改" url="roleManagerUpdate" />
+	<pageElementResource name="角色管理-撤销" url="roleManagerTerminate" />
+	<pageElementResource name="角色管理-分配路径访问权限资源" url="roleManagerGrantUrlAccessResource" />
+	<pageElementResource name="角色管理-分配菜单权限资源" url="roleManagerGrantMenuResource" />
+	<pageElementResource name="角色管理-分配页面元素权限资源" url="roleManagerGrantPageElementResource" />
+	<pageElementResource name="角色管理-分配权限" url="roleManagerGrantPermission" notGrant="true"/>
+	<pageElementResource name="角色管理-高级查询" url="roleManagerQuery" />
+	<pageElementResource name="权限管理-添加" url="permissionManagerAdd" notGrant="true"/>
+	<pageElementResource name="权限管理-修改" url="permissionManagerUpdate" notGrant="true"/>
+	<pageElementResource name="权限管理-撤销" url="permissionManagerTerminate" notGrant="true"/>
+	<pageElementResource name="权限管理-高级查询" url="permissionManagerQuery" notGrant="true"/>
+	<pageElementResource name="菜单资源管理-添加" url="menuResourceManagerAdd" />
+	<pageElementResource name="菜单资源管理-修改" url="menuResourceManagerUpdate" />
+	<pageElementResource name="菜单资源管理-撤销" url="menuResourceManagerTerminate" />
+	<pageElementResource name="菜单资源管理-授权权限" url="menuResourceManagerGrantPermission" notGrant="true" />
+	<pageElementResource name="路径访问资源管理-添加" url="urlAccessResourceManagerAdd" />
+	<pageElementResource name="路径访问资源管理-修改" url="urlAccessResourceManagerUpdate" />
+	<pageElementResource name="路径访问资源管理-撤销" url="urlAccessResourceManagerTerminate" />
+	<pageElementResource name="路径访问资源管理-授权权限" url="urlAccessResourceManagerGrantPermission" notGrant="true"/>
+	<pageElementResource name="路径访问资源管理-高级查询" url="urlAccessResourceManagerQuery" />
+	<pageElementResource name="页面元素资源管理-添加" url="pageElementResourceManagerAdd" />
+	<pageElementResource name="页面元素资源管理-修改" url="pageElementResourceManagerUpdate" />
+	<pageElementResource name="页面元素资源管理-撤销" url="pageElementResourceManagerTerminate" />
+	<pageElementResource name="页面元素资源管理-授权权限" url="pageElementResourceManagerGrantPermission" notGrant="true"/>
+	<pageElementResource name="页面元素资源管理-高级查询" url="pageElementResourceManagerQuery" />
+
+    <pageElementResource name="机构管理-创建分公司" url="organizationManagerAddCompany" />
+    <pageElementResource name="机构管理-创建下级部门" url="organizationManagerAddDepartment" />
+    <pageElementResource name="机构管理-员工列表" url="organizationManagerEmployeeListBtn" />
+    <pageElementResource name="机构管理-修改部门" url="organizationManagerUpdateDepartment" />
+    <pageElementResource name="机构管理-修改公司" url="organizationManagerUpdateCompany" />
+    <pageElementResource name="机构管理-撤销" url="organizationManagerDelete" />
+
+    <pageElementResource name="职务管理-创建" url="jobManagerCreate" />
+    <pageElementResource name="职务管理-修改" url="jobManagerUpdate" />
+    <pageElementResource name="职务管理-撤销" url="jobManagerDelete" />
+    <pageElementResource name="职务管理-高级搜索" url="jobManagerQuery" />
+
+    <pageElementResource name="岗位管理-创建" url="postManagerCreate" />
+    <pageElementResource name="岗位管理-修改" url="postManagerUpdate" />
+    <pageElementResource name="岗位管理-撤销" url="postManagerDelete" />
+    <pageElementResource name="岗位管理-高级搜索" url="postManagerQuery" />
+
+    <pageElementResource name="人员管理-创建" url="employeeManagerCreate" />
+    <pageElementResource name="人员管理-修改" url="employeeManagerUpdate" />
+    <pageElementResource name="人员管理-撤销" url="employeeManagerDelete" />
+    <pageElementResource name="人员管理-高级搜索" url="employeeManagerQuery" />
+	
+</systemInit>

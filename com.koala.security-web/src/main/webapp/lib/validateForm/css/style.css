@@ -1,0 +1,39 @@
+.input_tip {
+	box-sizing: content-box!important;
+	background-color:#fff;
+	font-size: 15px;
+	height: 18px;
+	line-height:18px;
+	padding: 4px;
+	padding-left: 25px;
+	white-space: nowrap;
+	z-index: 100;
+	position: absolute;
+	display:none;
+}
+
+.focus_tip, .right_tip, .error_tip{
+	background-image:url('tip.png');
+	background-repeat: no-repeat;
+	border: 1px solid red;
+}
+
+.focus_tip {
+	color: #5a4822;
+	border-color:#feb930;
+	background-position: 2px 4px;
+}
+.right_tip {
+	color: #009828;
+	border-color:#009828;
+	background-position: 2px -23px;
+}
+.error_tip {
+	color: red;
+	border-color:red;
+	background-position: 2px -50px;
+}
+.ajax_checking_tip {
+	color: #009828;
+	background: url('loading.gif') no-repeat 0 8px;
+}

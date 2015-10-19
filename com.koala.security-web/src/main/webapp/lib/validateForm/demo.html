@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    	<title>hao</title>
+        <meta charset=UTF-8>
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="validateInput.js"></script>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/base.css"/>
+    </head>
+    <body>
+    	<form id="ajax" action="www.baidu.com">
+	    	<dl>
+	    		<dt>用户名：</dt><dd><input type="text" name="name"/></dd>
+	    		<dt>密码：</dt><dd><input type="text" name="pwd"/></dd>
+	    		<dt>确认密码：</dt><dd><input type="text" name="pwd1"/></dd>
+	    		<dt>电子邮件：</dt><dd><input type="text" name="email"/></dd>
+	    		<dt>年龄：</dt><dd><input type="text" name="age"/></dd>
+	    		<dt> </dt><dd><button type="button" id="simin">提交</button></dd>
+	    	</dl>
+       	</form>
+    </body>
+    <script>
+		var rules = {
+			"email"    	: {"rule" : /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/, "tip" :"邮箱格式不对"},
+			"username" 	: {"rule" : /^[#]/, 															"tip" : "不能这样写"},
+			"password" 	: {"rule" : /(lw)$/,															"tip" : "我要发火了"},
+			"eng"	   	: {"rule" : /^[A-Za-z]+$/ ,														"tip" :"只能输入英文"},
+			"chn" 		: {"rule" : /^[\u0391-\uFFE5]+$/,												"tip" : "只能输入汉字"},
+			"eq"		: {
+				"rule" : function(value, formData){
+					return value == formData.pwd;
+				},
+				
+				"tip" : "不相等"
+			}
+		};
+    	
+        var inputs = [{
+				name 	 	: "name",	
+				rules 	 	: ['eng'],
+				focusMsg 	: '中文',	
+				errorMsg 	: "您的大名", 
+				rightMsg 	: "填写正确"
+			},{ 
+				name 		: "pwd",	
+				rules 		: ['eng'],
+				focusMsg 	: '英文',
+				rightMsg 	: "填写正确"
+			},{ 
+				name 		: "pwd1",	
+				rules 		: ['eq'],		
+				focusMsg 	: '确认密码',	
+				rightMsg 	: "确认成功",
+				errorMsg 	: "大于六个字符"
+			},{ 
+				name 		: "email",	
+				rules 		: ["email"],	
+				focusMsg 	: '常用邮箱',
+				rightMsg 	: "填写正确"
+			}
+		];
+		
+	
+        $("#ajax").validateInput({
+            inputs				: inputs,
+            button 				: "#simin",
+            rules 				: rules,
+        	showTipsAfterInit 	: true,
+            onButtonClick 		: function(result, button, form){
+            	if(result){//如果表单的验证结果为true,则通过ajax提交表单参数
+					console.log(result);
+				}
+            }
+       	});
+    </script>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<bean id="customAuthoringRealm" class="org.openkoala.security.shiro.realm.CustomAuthoringRealm">
+		<property name="cachingEnabled" value="false" />
+	</bean>
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="customAuthoringRealm" />
+	</bean>
+	
+	 <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
+        <property name="arguments" ref="securityManager"/>
+    </bean>
+
+	<bean id="formAuthenticationFilter"
+		class="org.openkoala.security.shiro.filter.CustomFormAuthenticationFilter">
+		<property name="usernameParam" value="username" />
+		<property name="passwordParam" value="password" />
+		<property name="rememberMeParam" value="rememberMe" />
+		<property name="failureKeyAttribute" value="shiroLoginFailure" />
+		<property name="loginUrl" value="/login.koala"></property>
+	</bean>
+
+    <!--验证码-->
+    <bean id="jCaptchaValidateFilter" class="org.openkoala.security.shiro.jcaptcha.JCaptchaValidateFilter">
+        <!-- 是否启用验证码 从属性配置文件中读取，可以灵活配置-->
+        <property name="jCaptchaDisabled" value="${security.jCaptchaDisabled}"/>
+        <!-- 页面输入的验证码-->
+        <property name="jCaptchaCode" value="jCaptchaCode"/>
+        <!-- 验证失败  -->
+        <property name="failureKeyAttribute" value="shiroLoginFailure"/>
+    </bean>
+
+	<bean id="anyRoleFilter" class="org.openkoala.security.shiro.filter.AnyRoleAuthorizationFilter"></bean>
+ 	
+	<!-- 自定义过滤器链管理 -->
+	<bean id="filterChainManager" class="org.openkoala.security.shiro.extend.CustomDefaultFilterChainManager">
+		<property name="loginUrl" value="/login.koala" />
+		<property name="successUrl" value="/"/>
+		<property name="unauthorizedUrl" value="/unauthorized.koala" />
+		<property name="customFilters">
+			<util:map>
+				<!-- 定义自己的过滤器注册到shiro过滤器链中 -->
+				<entry key="authc" value-ref="formAuthenticationFilter" />
+				<entry key="anyRole" value-ref="anyRoleFilter" />
+				<entry key="jCaptchaValidate" value-ref="jCaptchaValidateFilter" />
+			</util:map>
+		</property>
+		<property name="defaultFilterChainDefinitions">
+			<value>
+				/js/** = anon
+				/images/** = anon
+				/css/** = anon
+				/lib/** = anon
+                /commons/** = anon
+				/jcaptcha.jpg = anon
+				/login.koala = jCaptchaValidate
+				/unauthorized.koala = authc
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="filterChainResolver" class="org.openkoala.security.shiro.extend.CustomPathMatchingFilterChainResolver">
+		 <property name="customDefaultFilterChainManager" ref="filterChainManager"/>
+	</bean>
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="shiroFilter" />
+		<property name="targetMethod" value="setFilterChainResolver" />
+		<property name="arguments" ref="filterChainResolver" />
+	</bean>
+	
+	<!-- shiro的生命周期，自动初始化和销毁 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	
+</beans>
