@@ -1,6 +1,7 @@
 package org.openkoala.security.facade.dto;
 
-/**URL-ROLE
+/**
+ * URL-ROLE
  * Created by luzhao on 14-8-21.
  */
 public class UrlRoleDTO {
@@ -9,7 +10,8 @@ public class UrlRoleDTO {
 
     private String role;
 
-    protected UrlRoleDTO() {}
+    protected UrlRoleDTO() {
+    }
 
     public UrlRoleDTO(String url, String role) {
         this.url = url;

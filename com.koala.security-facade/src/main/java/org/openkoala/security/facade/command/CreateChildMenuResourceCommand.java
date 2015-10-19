@@ -1,16 +1,15 @@
 package org.openkoala.security.facade.command;
 
-public class CreateChildMenuResourceCommand extends CreateMenuResourceCommand{
+public class CreateChildMenuResourceCommand extends CreateMenuResourceCommand {
 
-	private Long parentId;
+    private Long parentId;
 
-	public Long getParentId() {
-		return parentId;
-	}
+    public Long getParentId() {
+        return parentId;
+    }
 
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 
 }

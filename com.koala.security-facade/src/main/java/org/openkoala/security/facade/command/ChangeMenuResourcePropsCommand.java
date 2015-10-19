@@ -2,54 +2,54 @@ package org.openkoala.security.facade.command;
 
 public class ChangeMenuResourcePropsCommand {
 
-	private Long id;
-	
-	private String name;
+    private Long id;
 
-	private String url;
+    private String name;
 
-	private String menuIcon;
+    private String url;
 
-	private String description;
+    private String menuIcon;
 
-	public Long getId() {
-		return id;
-	}
+    private String description;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public String getMenuIcon() {
-		return menuIcon;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public void setMenuIcon(String menuIcon) {
-		this.menuIcon = menuIcon;
-	}
+    public String getMenuIcon() {
+        return menuIcon;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setMenuIcon(String menuIcon) {
+        this.menuIcon = menuIcon;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

@@ -1,23 +1,15 @@
 package org.openkoala.security.core.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 /**
  * 菜单权限资源。它是系统提供的功能入口。
- *
  * @author lucas
  */
 @Entity

@@ -11,30 +11,30 @@ import org.slf4j.LoggerFactory;
 
 public class CustomPathMatchingFilterChainResolver extends PathMatchingFilterChainResolver {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CustomPathMatchingFilterChainResolver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomPathMatchingFilterChainResolver.class);
 
-	private CustomDefaultFilterChainManager customDefaultFilterChainManager;
+    private CustomDefaultFilterChainManager customDefaultFilterChainManager;
 
-	public void setCustomDefaultFilterChainManager(CustomDefaultFilterChainManager customDefaultFilterChainManager) {
-		this.customDefaultFilterChainManager = customDefaultFilterChainManager;
-		setFilterChainManager(customDefaultFilterChainManager);
-	}
+    public void setCustomDefaultFilterChainManager(CustomDefaultFilterChainManager customDefaultFilterChainManager) {
+        this.customDefaultFilterChainManager = customDefaultFilterChainManager;
+        setFilterChainManager(customDefaultFilterChainManager);
+    }
 
-	public FilterChain getChain(ServletRequest request, ServletResponse response, FilterChain originalChain) {
-		FilterChainManager filterChainManager = getFilterChainManager();
-		if (!filterChainManager.hasChains()) {
-			return null;
-		}
+    public FilterChain getChain(ServletRequest request, ServletResponse response, FilterChain originalChain) {
+        FilterChainManager filterChainManager = getFilterChainManager();
+        if (!filterChainManager.hasChains()) {
+            return null;
+        }
 
-		String requestURI = getPathWithinApplication(request);
+        String requestURI = getPathWithinApplication(request);
 
-		for (String pathPattern : filterChainManager.getChainNames()) {
-			LOGGER.info("pathPattern:{},requestURI:{}", pathPattern, requestURI);
-			if (pathMatches(pathPattern, requestURI)) {
-				return customDefaultFilterChainManager.proxy(originalChain, pathPattern);
-			}
-		}
-		return null;
+        for (String pathPattern : filterChainManager.getChainNames()) {
+            LOGGER.info("pathPattern:{},requestURI:{}", pathPattern, requestURI);
+            if (pathMatches(pathPattern, requestURI)) {
+                return customDefaultFilterChainManager.proxy(originalChain, pathPattern);
+            }
+        }
+        return null;
 
-	}
+    }
 }

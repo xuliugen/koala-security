@@ -6,7 +6,6 @@ import org.openkoala.security.core.domain.EncryptService;
 
 /**
  * Shiro 默认是16进制加密
- *
  * @author lucas
  */
 public class MD5EncryptService implements EncryptService {

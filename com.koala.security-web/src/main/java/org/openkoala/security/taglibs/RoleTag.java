@@ -1,17 +1,15 @@
 package org.openkoala.security.taglibs;
 
-import java.util.Collection;
-import java.util.Set;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.jsp.JspException;
-
-import org.springframework.util.StringUtils;
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * 角色标签，支持与或非（and or not）。
  * 不支持复杂的与或非嵌套使用。
  * 具体的实现交给了{@link org.openkoala.security.taglibs.Authz}。
- *
  * @author lucas
  */
 public class RoleTag extends AbstractAuthorizationTag {
@@ -36,7 +34,6 @@ public class RoleTag extends AbstractAuthorizationTag {
 
     /**
      * 验证属性，hasTextAllRole、hasTextAnyRole和hasTextNotRole中必须有一个不为空。
-     *
      * @throws JspException 如果hasTextAllRole、hasTextAnyRole和hasTextNotRole属性值都为空，将抛出异常
      */
     @Override

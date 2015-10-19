@@ -1,6 +1,7 @@
 package org.openkoala.security.facade.dto;
 
-/**URL-PERMISSION
+/**
+ * URL-PERMISSION
  * Created by luzhao on 14-8-21.
  */
 public class UrlPermissionDTO {
@@ -9,7 +10,8 @@ public class UrlPermissionDTO {
 
     private String permission;
 
-    protected UrlPermissionDTO() {}
+    protected UrlPermissionDTO() {
+    }
 
     public UrlPermissionDTO(String url, String permission) {
         this.url = url;

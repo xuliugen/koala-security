@@ -1,12 +1,10 @@
 package org.openkoala.security.core.domain;
 
-import java.util.Set;
-
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * 代表某种范围，例如组织机构范围。
- *
  * @author lucas
  */
 @Entity

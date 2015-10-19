@@ -1,28 +1,19 @@
 package org.openkoala.security.core.domain;
 
-import java.util.*;
-
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.dayatang.utils.Assert;
 import org.openkoala.security.core.CorrelationException;
 import org.openkoala.security.core.NameIsExistedException;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Set;
+
 /**
  * 授权是是一个抽象的概念，是角色{@link Role}和权限{@link Permission}共同的基类。
  * 它代表某种权限（Permission）或权限集合（Role），可被授予Actor(即对Actor授予Authority)。
  * 它代表一系列的可执行操作或责任，用于限定您再软件系统中能做什么。不能做什么。
- *
  * @author lucas
  */
 @Entity
@@ -54,7 +45,7 @@ public abstract class Authority extends SecurityAbstractEntity {
     }
 
     public Authority(String name) {
-        Assert.notBlank(name,"name cannot be empty.");
+        Assert.notBlank(name, "name cannot be empty.");
         isExistedName(name);
         this.name = name;
     }
@@ -76,7 +67,6 @@ public abstract class Authority extends SecurityAbstractEntity {
 
     /**
      * 通过授权名称和授权的真实类型得到授权或者授权子类。
-     *
      * @param name 授权名称
      * @param <T>  授权子类
      * @return 授权或者授权子类
@@ -91,7 +81,6 @@ public abstract class Authority extends SecurityAbstractEntity {
 
     /**
      * 授权分配权限资源。
-     *
      * @param securityResource 权限资源
      */
     public void addSecurityResource(SecurityResource securityResource) {
@@ -100,7 +89,6 @@ public abstract class Authority extends SecurityAbstractEntity {
 
     /**
      * 授权分配多个权限资源。
-     *
      * @param securityResources 权限资源集合
      */
     public void addSecurityResources(List<? extends SecurityResource> securityResources) {
@@ -111,7 +99,6 @@ public abstract class Authority extends SecurityAbstractEntity {
 
     /**
      * 从授权中撤销权限资源。
-     *
      * @param securityResource 权限资源
      */
     public void terminateSecurityResource(SecurityResource securityResource) {
@@ -123,7 +110,6 @@ public abstract class Authority extends SecurityAbstractEntity {
 
     /**
      * 从授权中撤销多个权限资源。
-     *
      * @param securityResources 权限资源集合 {@link SecurityResource}
      */
     public void terminateSecurityResources(Set<? extends SecurityResource> securityResources) {
@@ -134,7 +120,6 @@ public abstract class Authority extends SecurityAbstractEntity {
 
     /**
      * 改变授权的名称。
-     *
      * @param name 授权名称
      */
     public void changeName(String name) {

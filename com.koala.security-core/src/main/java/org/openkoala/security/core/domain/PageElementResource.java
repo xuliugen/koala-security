@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 
 /**
  * 页面元素全权限资源，它用于页面上的元素（按钮Button，标题title等等）。
- *
  * @author lucas
  */
 @Entity

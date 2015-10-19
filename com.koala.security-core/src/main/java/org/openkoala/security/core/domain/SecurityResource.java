@@ -1,27 +1,17 @@
 package org.openkoala.security.core.domain;
 
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.dayatang.utils.Assert;
 import org.openkoala.security.core.CorrelationException;
 import org.openkoala.security.core.NameIsExistedException;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
 /**
  * 权限资源,它是{@link MethodInvocationResource}、{@link MenuResource}、{@link PageElementResource}、{@link UrlAccessResource}共同的基类。
  * 它是所有纳入系统管理的信息实体，如进销存系统中的进货订单，页面上的任何一个元素,菜单功能,方法调用,权限资源就是这些。
- *
  * @author lucas
  */
 @Entity

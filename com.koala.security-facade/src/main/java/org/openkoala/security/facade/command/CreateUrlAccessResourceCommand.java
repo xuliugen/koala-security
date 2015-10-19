@@ -1,35 +1,35 @@
 package org.openkoala.security.facade.command;
 
 public class CreateUrlAccessResourceCommand {
-	
-	private String name;
-	
-	private String url;
-	
-	private String description;
 
-	public String getName() {
-		return name;
-	}
+    private String name;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String url;
 
-	public String getUrl() {
-		return url;
-	}
+    private String description;
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 }

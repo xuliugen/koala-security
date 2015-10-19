@@ -1,21 +1,16 @@
 package org.openkoala.security.application.systeminit;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "user",
-    "role",
-    "menuResource",
-    "urlAccessResource",
-    "pageElementResource"
+        "user",
+        "role",
+        "menuResource",
+        "urlAccessResource",
+        "pageElementResource"
 })
 @XmlRootElement(name = "systemInit")
 public class SystemInit {
@@ -106,9 +101,9 @@ public class SystemInit {
     public List<org.openkoala.security.core.domain.UrlAccessResource> createUrlAccessResources() {
         List<org.openkoala.security.core.domain.UrlAccessResource> results = new ArrayList<org.openkoala.security.core.domain.UrlAccessResource>();
         for (SystemInit.UrlAccessResource each : getUrlAccessResource()) {
-            org.openkoala.security.core.domain.UrlAccessResource resource =  new org.openkoala.security.core.domain.UrlAccessResource(each.getName(), each.getUrl());
+            org.openkoala.security.core.domain.UrlAccessResource resource = new org.openkoala.security.core.domain.UrlAccessResource(each.getName(), each.getUrl());
             resource.save();
-            if(!each.isNotGrant()){
+            if (!each.isNotGrant()) {
                 results.add(resource);
             }
         }
@@ -120,7 +115,7 @@ public class SystemInit {
         for (SystemInit.PageElementResource each : getPageElementResource()) {
             org.openkoala.security.core.domain.PageElementResource resource = new org.openkoala.security.core.domain.PageElementResource(each.getName(), each.getUrl());
             resource.save();
-            if(!each.isNotGrant()){
+            if (!each.isNotGrant()) {
                 results.add(resource);
             }
         }

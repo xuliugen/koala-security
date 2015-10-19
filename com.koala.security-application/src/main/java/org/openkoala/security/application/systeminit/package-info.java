@@ -5,5 +5,4 @@
 // Generated on: 2014.10.23 at 04:24:31 PM CST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.example.org/systemInit", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package org.openkoala.security.application.systeminit;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.example.org/systemInit", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED) package org.openkoala.security.application.systeminit;

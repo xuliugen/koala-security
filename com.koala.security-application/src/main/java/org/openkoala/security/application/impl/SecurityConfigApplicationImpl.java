@@ -1,23 +1,12 @@
 package org.openkoala.security.application.impl;
 
-import java.util.List;
-import java.util.Set;
+import com.google.common.collect.Sets;
+import org.openkoala.security.application.SecurityConfigApplication;
+import org.openkoala.security.core.domain.*;
 
 import javax.inject.Named;
-
-import org.openkoala.security.application.SecurityConfigApplication;
-import org.openkoala.security.core.domain.Actor;
-import org.openkoala.security.core.domain.Authority;
-import org.openkoala.security.core.domain.MenuResource;
-import org.openkoala.security.core.domain.PageElementResource;
-import org.openkoala.security.core.domain.Permission;
-import org.openkoala.security.core.domain.Role;
-import org.openkoala.security.core.domain.Scope;
-import org.openkoala.security.core.domain.SecurityResource;
-import org.openkoala.security.core.domain.UrlAccessResource;
-import org.openkoala.security.core.domain.User;
-
-import com.google.common.collect.Sets;
+import java.util.List;
+import java.util.Set;
 
 @Named
 public class SecurityConfigApplicationImpl implements SecurityConfigApplication {

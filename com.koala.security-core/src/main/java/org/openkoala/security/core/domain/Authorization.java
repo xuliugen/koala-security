@@ -1,19 +1,17 @@
 package org.openkoala.security.core.domain;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.*;
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.dayatang.domain.CriteriaQuery;
 import org.dayatang.utils.Assert;
 import org.openkoala.security.core.AuthorizationIsNotExisted;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * 授权中心，在指定范围{@link Scope}将授权{@link Authority}授予参与者{@link Actor}。
- *
  * @author lucas
  */
 @Entity
@@ -67,11 +65,10 @@ public class Authorization extends SecurityAbstractEntity {
 
     /**
      * 更改授权中心的范围。
-     *
      * @param scope 范围
      */
     public void changeScope(Scope scope) {
-        Assert.notNull(scope,null);
+        Assert.notNull(scope, null);
         this.scope = scope;
         this.save();
     }

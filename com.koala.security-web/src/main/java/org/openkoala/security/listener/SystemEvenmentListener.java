@@ -1,8 +1,5 @@
 package org.openkoala.security.listener;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-
 import org.openkoala.security.shiro.extend.CustomDefaultFilterChainManager;
 import org.openkoala.security.shiro.extend.ShiroFilterChainManager;
 import org.slf4j.Logger;
@@ -10,9 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
 /**
  * 初始化Shiro过滤器链。
- *
  * @author lucas
  */
 public class SystemEvenmentListener implements ServletContextListener {

@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 
 /**
  * 方法调用权限资源,它表示服务端的方法，暂未实现。
- *
  * @author lucas
  */
 @Entity

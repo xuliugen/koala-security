@@ -1,13 +1,12 @@
 package org.openkoala.security.application.systeminit;
 
-import java.io.IOException;
-import java.io.InputStream;
+import org.openkoala.koalacommons.resourceloader.Resource;
+import org.openkoala.koalacommons.resourceloader.impl.classpath.ClassPathResource;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
-
-import org.openkoala.koalacommons.resourceloader.Resource;
-import org.openkoala.koalacommons.resourceloader.impl.classpath.ClassPathResource;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class SystemInitFactory {
 

@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SuppressWarnings("unused")
 public class LogoutController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(LogoutController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LogoutController.class);
 
-	/**
-	 * 用户退出。
-	 * 
-	 * @return
-	 */
+    /**
+     * 用户退出。
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public InvokeResult logout() {

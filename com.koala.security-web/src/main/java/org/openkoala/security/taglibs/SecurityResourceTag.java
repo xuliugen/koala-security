@@ -1,15 +1,14 @@
 package org.openkoala.security.taglibs;
 
+import org.springframework.util.StringUtils;
+
 import javax.servlet.ServletContext;
 import javax.servlet.jsp.JspException;
-
-import org.springframework.util.StringUtils;
 
 /**
  * 资源标签。
  * 直接判断用户是否拥有该资源，如果拥有该资源就显示，如果没有该资源，讲跳过（即不显示）。
  * 具体实现也是交给{@link org.openkoala.security.taglibs.Authz}。
- *
  * @author lucas
  */
 public class SecurityResourceTag extends AbstractAuthorizationTag {

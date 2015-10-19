@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
-  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
 
 <taglib>
 
-	<tlib-version>1.1.2</tlib-version>
-	<jsp-version>1.2</jsp-version>
-	<short-name>Koala Security</short-name>
-	
-	<!-- 这个路径需要确定 -->
-	<uri>http://www.openkoala.org/security</uri>
-	<description>Koala Security 4.0 JSP Tag Library</description>
-	<tag>
-		<name>user</name>
-		<tag-class>org.openkoala.security.taglibs.UserTag</tag-class>
-		<body-content>JSP</body-content>
-		<attribute>
-			<name>type</name>
-			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-		<attribute>
-			<name>property</name>
-			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-		<attribute>
-			<name>defaultValue</name>
-			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
+    <tlib-version>1.1.2</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>Koala Security</short-name>
 
-	<tag>
-		<name>hasRole</name>
-		<tag-class>org.openkoala.security.taglibs.RoleTag</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<name>ifAllRoles</name>
-		</attribute>
-		<attribute>
-			<name>ifAnyRoles</name>
-		</attribute>
-		<attribute>
-			<name>ifNotRoles</name>
-		</attribute>
-	</tag>
+    <!-- 这个路径需要确定 -->
+    <uri>http://www.openkoala.org/security</uri>
+    <description>Koala Security 4.0 JSP Tag Library</description>
+    <tag>
+        <name>user</name>
+        <tag-class>org.openkoala.security.taglibs.UserTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>type</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>property</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>defaultValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
-	<tag>
-		<name>hasPermission</name>
-		<tag-class>org.openkoala.security.taglibs.PermissionTag</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<name>ifAllPermissions</name>
-		</attribute>
-		<attribute>
-			<name>ifAnyPermissions</name>
-		</attribute>
-		<attribute>
-			<name>ifNotPermissions</name>
-		</attribute>
-	</tag>
-	
-	<tag>
-		<name>hasSecurityResource</name>
-		<tag-class>org.openkoala.security.taglibs.SecurityResourceTag</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<name>identifier</name>
-		</attribute>
-	</tag>
-	
+    <tag>
+        <name>hasRole</name>
+        <tag-class>org.openkoala.security.taglibs.RoleTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>ifAllRoles</name>
+        </attribute>
+        <attribute>
+            <name>ifAnyRoles</name>
+        </attribute>
+        <attribute>
+            <name>ifNotRoles</name>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>hasPermission</name>
+        <tag-class>org.openkoala.security.taglibs.PermissionTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>ifAllPermissions</name>
+        </attribute>
+        <attribute>
+            <name>ifAnyPermissions</name>
+        </attribute>
+        <attribute>
+            <name>ifNotPermissions</name>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>hasSecurityResource</name>
+        <tag-class>org.openkoala.security.taglibs.SecurityResourceTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>identifier</name>
+        </attribute>
+    </tag>
+
 </taglib>

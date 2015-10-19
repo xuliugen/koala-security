@@ -1,18 +1,16 @@
 package org.openkoala.security.taglibs;
 
-import java.util.Collection;
-import java.util.Set;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.jsp.JspException;
-
-import org.springframework.util.StringUtils;
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * 权限标签，与角色标签一样。
  * 支持与或非（and or not）。
  * 不支持复杂的与或非嵌套使用。
  * 具体的实现交给了{@link org.openkoala.security.taglibs.Authz}。
- *
  * @author lucas
  */
 public class PermissionTag extends AbstractAuthorizationTag {

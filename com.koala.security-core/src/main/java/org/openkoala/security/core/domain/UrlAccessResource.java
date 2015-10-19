@@ -1,17 +1,15 @@
 package org.openkoala.security.core.domain;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-
 import org.dayatang.utils.Assert;
 import org.openkoala.security.core.UrlIsExistedException;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.util.List;
 
 /**
  * URL访问权限资源，他表示页面请求服务端的URL。
- *
  * @author lucas
  */
 @Entity

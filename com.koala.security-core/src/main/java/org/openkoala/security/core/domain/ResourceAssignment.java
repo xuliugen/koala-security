@@ -10,7 +10,6 @@ import java.util.Set;
 
 /**
  * 资源分配，它表示系统中将要在权限资源的基础上进行授权的控制。
- *
  * @author lucas
  */
 @Entity

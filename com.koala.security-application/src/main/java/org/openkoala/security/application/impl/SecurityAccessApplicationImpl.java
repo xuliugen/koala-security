@@ -1,12 +1,10 @@
 package org.openkoala.security.application.impl;
 
-import java.util.List;
-import java.util.Set;
-
-import javax.inject.Named;
-
 import org.openkoala.security.application.SecurityAccessApplication;
 import org.openkoala.security.core.domain.*;
+
+import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class SecurityAccessApplicationImpl implements SecurityAccessApplication {

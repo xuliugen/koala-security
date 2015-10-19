@@ -1,59 +1,27 @@
 package org.openkoala.security.facade.impl;
 
-import java.util.*;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.validation.ConstraintViolationException;
-
+import com.google.common.collect.Lists;
 import org.openkoala.koala.commons.InvokeResult;
 import org.openkoala.security.application.SecurityAccessApplication;
 import org.openkoala.security.application.SecurityConfigApplication;
 import org.openkoala.security.application.systeminit.SystemInit;
 import org.openkoala.security.application.systeminit.SystemInitFactory;
-import org.openkoala.security.core.CorrelationException;
-import org.openkoala.security.core.EmailIsExistedException;
-import org.openkoala.security.core.IdentifierIsExistedException;
-import org.openkoala.security.core.NameIsExistedException;
-import org.openkoala.security.core.TelePhoneIsExistedException;
-import org.openkoala.security.core.UrlIsExistedException;
-import org.openkoala.security.core.UserAccountIsExistedException;
-import org.openkoala.security.core.UserPasswordException;
-import org.openkoala.security.core.domain.Authority;
-import org.openkoala.security.core.domain.MenuResource;
-import org.openkoala.security.core.domain.PageElementResource;
-import org.openkoala.security.core.domain.Permission;
-import org.openkoala.security.core.domain.Role;
-import org.openkoala.security.core.domain.UrlAccessResource;
-import org.openkoala.security.core.domain.User;
+import org.openkoala.security.core.*;
+import org.openkoala.security.core.domain.*;
 import org.openkoala.security.facade.SecurityConfigFacade;
-import org.openkoala.security.facade.command.ChangeMenuResourcePropsCommand;
-import org.openkoala.security.facade.command.ChangePageElementResourcePropsCommand;
-import org.openkoala.security.facade.command.ChangePermissionPropsCommand;
-import org.openkoala.security.facade.command.ChangeRolePropsCommand;
-import org.openkoala.security.facade.command.ChangeUrlAccessResourcePropsCommand;
-import org.openkoala.security.facade.command.ChangeUserEmailCommand;
-import org.openkoala.security.facade.command.ChangeUserPasswordCommand;
-import org.openkoala.security.facade.command.ChangeUserPropsCommand;
-import org.openkoala.security.facade.command.ChangeUserTelePhoneCommand;
-import org.openkoala.security.facade.command.CreateChildMenuResourceCommand;
-import org.openkoala.security.facade.command.CreateMenuResourceCommand;
-import org.openkoala.security.facade.command.CreatePageElementResourceCommand;
-import org.openkoala.security.facade.command.CreatePermissionCommand;
-import org.openkoala.security.facade.command.CreateRoleCommand;
-import org.openkoala.security.facade.command.CreateUrlAccessResourceCommand;
-import org.openkoala.security.facade.command.CreateUserCommand;
-import org.openkoala.security.facade.impl.assembler.MenuResourceAssembler;
-import org.openkoala.security.facade.impl.assembler.PageElementResourceAssembler;
-import org.openkoala.security.facade.impl.assembler.PermissionAssembler;
-import org.openkoala.security.facade.impl.assembler.RoleAssembler;
-import org.openkoala.security.facade.impl.assembler.UrlAccessResourceAssembler;
-import org.openkoala.security.facade.impl.assembler.UserAssembler;
+import org.openkoala.security.facade.command.*;
+import org.openkoala.security.facade.impl.assembler.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.common.collect.Lists;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.validation.ConstraintViolationException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Transactional(value = "transactionManager_security")
 @Named
@@ -499,7 +467,7 @@ public class SecurityConfigFacadeImpl implements SecurityConfigFacade {
 
     @Override
     public InvokeResult grantPermisssionToMenuResource(Long permissionId, Long menuResourceId) {
-        try{
+        try {
             MenuResource menuResource = securityAccessApplication.getMenuResourceBy(menuResourceId);
             Permission permssion = securityAccessApplication.getPermissionBy(permissionId);
             securityConfigApplication.grantAuthorityToSecurityResource(permssion, menuResource);
@@ -593,7 +561,7 @@ public class SecurityConfigFacadeImpl implements SecurityConfigFacade {
         Set<Authority> authorities = new HashSet<Authority>();
         // 可能用户并没有分配角色。因此需要对其获取异常。
         Role role = securityAccessApplication.getRoleBy(roleNameOfUser);
-        if(role != null){
+        if (role != null) {
             Set<Permission> rolePermissions = role.getPermissions();
             authorities.add(role);
             authorities.addAll(rolePermissions);

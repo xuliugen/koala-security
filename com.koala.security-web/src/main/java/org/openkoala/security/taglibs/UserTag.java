@@ -1,21 +1,19 @@
 package org.openkoala.security.taglibs;
 
+import org.openkoala.security.shiro.CurrentUser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspTagException;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.io.IOException;
 
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspTagException;
-
-import org.openkoala.security.shiro.CurrentUser;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * 大部分都直接是使用shiro中的代码。
  * property这里可以看做是{@link org.openkoala.security.shiro.realm.ShiroUser}。
- *
  * @author lucas
  */
 public class UserTag extends AbstractAuthorizationTag {

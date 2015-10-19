@@ -10,12 +10,13 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
-
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 权限是一个抽象的概念，代表一项操作或责任，因此是授权的细粒度表现。
- *
  * @author lucas
  */
 @Entity
@@ -86,7 +87,7 @@ public class Permission extends Authority {
     }
 
     public void changeIdentifier(String identifier) {
-        Assert.notBlank(identifier,"identifier cannot be empty.");
+        Assert.notBlank(identifier, "identifier cannot be empty.");
         if (!identifier.equals(this.getIdentifier())) {
             isIdentifierExisted(identifier);
             this.identifier = identifier;

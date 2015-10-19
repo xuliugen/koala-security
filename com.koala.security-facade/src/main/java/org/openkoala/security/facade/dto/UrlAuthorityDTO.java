@@ -2,6 +2,7 @@ package org.openkoala.security.facade.dto;
 
 import java.util.HashSet;
 import java.util.Set;
+
 /**
  * Created by luzhao on 14-8-21.
  */
@@ -17,11 +18,11 @@ public class UrlAuthorityDTO {
         this.url = url;
     }
 
-    public void addRole(String role){
+    public void addRole(String role) {
         roles.add(role);
     }
 
-    public void addPermission(String permission){
+    public void addPermission(String permission) {
         permissions.add(permission);
     }
 

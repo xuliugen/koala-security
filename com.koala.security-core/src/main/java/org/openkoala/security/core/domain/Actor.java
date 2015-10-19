@@ -1,20 +1,17 @@
 package org.openkoala.security.core.domain;
 
+import org.dayatang.utils.Assert;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.*;
-import javax.persistence.Entity;
-
-import org.dayatang.utils.Assert;
 
 /**
  * 参与者, 它是一个抽象的概念。
  * 是 {@link User} 和  <code>UserGroup </code>的共同基类。
  * 可以对该类进行扩展，以达到您所希望的业务。
  * 可以对其授予角色 {@link Role} 和 权限 {@link Permission}。
- *
  * @author lucas
  */
 @Entity
@@ -81,7 +78,6 @@ public abstract class Actor extends SecurityAbstractEntity {
      * 在某个范围下{@link Scope}为参与者{@link Actor}分配授权{@link Authority}。
      * 如果Authorization中已经存在Actor和Authority,就不需要授权，如果范围不为空，那么就更改范围。
      * 不存在就直接创建Authorization并保存。
-     *
      * @param authority 可授权体
      * @param scope     范围
      */
@@ -98,7 +94,6 @@ public abstract class Actor extends SecurityAbstractEntity {
 
     /**
      * 从参与者中撤销在某个范围下的授权。即撤销授权中心 {@link Authorization}。
-     *
      * @param authority 授权 {@like Authority}
      * @param scope     范围 {@link Scope}
      */
@@ -110,7 +105,6 @@ public abstract class Actor extends SecurityAbstractEntity {
     /**
      * 为参与者分配授权。
      * 如果存在就直接返回，不存在就创建一个Authorization并保存。
-     *
      * @param authority 授权 {@like Authority}
      */
     public void grant(Authority authority) {
@@ -122,7 +116,6 @@ public abstract class Actor extends SecurityAbstractEntity {
 
     /**
      * 从参与者中撤销授权，即撤销授权中心 {@link Authorization}。
-     *
      * @param authority 授权 {@like Authority}
      */
     public void terminate(Authority authority) {
@@ -132,7 +125,6 @@ public abstract class Actor extends SecurityAbstractEntity {
 
     /**
      * 得到在某个范围下{@link Scope}参与者{@link Actor}的所有不重复的权限集合{@link Permission}
-     *
      * @param scope 范围
      * @return 不重复的权限集合 {@link Permission}
      */
@@ -158,7 +150,6 @@ public abstract class Actor extends SecurityAbstractEntity {
 
     /**
      * 根据参与者ID得到参与者
-     *
      * @param actorId 参与者ID
      * @param <T>     继承参与者
      * @return 参与者或者其子类
@@ -175,7 +166,6 @@ public abstract class Actor extends SecurityAbstractEntity {
 
     /**
      * 根据范围获取到所有不重复的授权集合。
-     *
      * @param scope 范围 {@link Scope}
      * @return 不重复的授权集合 {@link Authorization}
      */

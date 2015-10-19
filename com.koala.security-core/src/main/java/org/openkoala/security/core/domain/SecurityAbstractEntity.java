@@ -16,7 +16,6 @@ import java.util.Map;
 
 /**
  * 抽象实体类，可作为所有领域实体的基类，提供ID和版本属性。
- *
  * @author yang
  */
 @MappedSuperclass
@@ -38,7 +37,6 @@ public abstract class SecurityAbstractEntity implements Entity {
 
     /**
      * 获得实体的标识
-     *
      * @return 实体的标识
      */
 
@@ -48,7 +46,6 @@ public abstract class SecurityAbstractEntity implements Entity {
 
     /**
      * 设置实体的标识
-     *
      * @param id 要设置的实体标识
      */
     public void setId(Long id) {
@@ -57,7 +54,6 @@ public abstract class SecurityAbstractEntity implements Entity {
 
     /**
      * 获得实体的版本号。持久化框架以此实现乐观锁。
-     *
      * @return 实体的版本号
      */
     public int getVersion() {
@@ -66,7 +62,6 @@ public abstract class SecurityAbstractEntity implements Entity {
 
     /**
      * 设置实体的版本号。持久化框架以此实现乐观锁。
-     *
      * @param version 要设置的版本号
      */
     public void setVersion(int version) {
@@ -119,7 +114,6 @@ public abstract class SecurityAbstractEntity implements Entity {
 
     /**
      * 请改用每个实体对象的实例方法的existed()方法。
-     *
      * @param clazz
      * @param id
      * @return
@@ -149,7 +143,6 @@ public abstract class SecurityAbstractEntity implements Entity {
      * 获取业务主键。业务主键是判断相同类型的两个实体在业务上的等价性的依据。如果相同类型的两个
      * 实体的业务主键相同，则认为两个实体是相同的，代表同一个实体。
      * <p>业务主键由实体的一个或多个属性组成。
-     *
      * @return 组成业务主键的属性的数组。
      */
     public abstract String[] businessKeys();
@@ -157,7 +150,6 @@ public abstract class SecurityAbstractEntity implements Entity {
     /**
      * 依据业务主键获取哈希值。用于判定两个实体是否等价。
      * 等价的两个实体的hashCode相同，不等价的两个实体hashCode不同。
-     *
      * @return 实体的哈希值
      */
     @Override
@@ -173,7 +165,6 @@ public abstract class SecurityAbstractEntity implements Entity {
 
     /**
      * 依据业务主键判断两个实体是否等价。
-     *
      * @param other 另一个实体
      * @return 如果本实体和other等价则返回true, 否则返回false
      */

@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @SuppressWarnings("unused")
 public class IndexController {
 
-	@RequestMapping(value="/index",method = RequestMethod.GET)
-	public String index() {
-		return "index";
-	}
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index() {
+        return "index";
+    }
 
-	@RequestMapping(value = "/unauthorized")
-	public String unauthorized() {
-		return "/errors/unauthorized";
-	}
+    @RequestMapping(value = "/unauthorized")
+    public String unauthorized() {
+        return "/errors/unauthorized";
+    }
 }

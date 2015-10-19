@@ -1,8 +1,6 @@
 package org.openkoala.security.controller;
 
 
-import javax.inject.Inject;
-
 import org.dayatang.utils.Page;
 import org.openkoala.koala.commons.InvokeResult;
 import org.openkoala.security.facade.SecurityAccessFacade;
@@ -11,16 +9,16 @@ import org.openkoala.security.facade.command.ChangeMenuResourcePropsCommand;
 import org.openkoala.security.facade.command.CreateChildMenuResourceCommand;
 import org.openkoala.security.facade.command.CreateMenuResourceCommand;
 import org.openkoala.security.facade.dto.PermissionDTO;
-import org.openkoala.security.shiro.CurrentUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.inject.Inject;
+
 /**
  * 菜单权限资源控制器。
  * 分页都将采用POST请求方式，因GET请求搜索时携带中文会导致乱码。
- *
  * @author lucas
  */
 @Controller

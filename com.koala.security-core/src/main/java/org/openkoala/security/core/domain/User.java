@@ -1,25 +1,19 @@
 package org.openkoala.security.core.domain;
 
-import java.util.List;
-import java.util.UUID;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.dayatang.domain.InstanceFactory;
 import org.dayatang.utils.Assert;
-import org.openkoala.security.core.EmailIsExistedException;
-import org.openkoala.security.core.TelePhoneIsExistedException;
-import org.openkoala.security.core.UserAccountIsExistedException;
-import org.openkoala.security.core.UserNotHasRoleException;
-import org.openkoala.security.core.UserPasswordException;
+import org.openkoala.security.core.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * 位于系统外部，与系统交互的人，是使用软件的人。
  * 系统的登录，即认证。
  * 可以对其授予角色 {@link Role}、权限 {@link Permission}和用户组 <code> UserGroup </code>
- *
  * @author lucas
  */
 @Entity
@@ -102,7 +96,6 @@ public class User extends Actor {
 
     /**
      * 更改账户 TODO 更加严格的验证
-     *
      * @param userAccount
      */
     public void changeUserAccount(String userAccount, String userPassword) {
@@ -117,7 +110,6 @@ public class User extends Actor {
 
     /**
      * 更改邮箱
-     *
      * @param email
      */
     public void changeEmail(String email, String userPassword) {
@@ -152,7 +144,6 @@ public class User extends Actor {
 
     /**
      * 更改联系电话
-     *
      * @param telePhone
      */
     public void changeTelePhone(String telePhone, String userPassword) {
@@ -169,7 +160,6 @@ public class User extends Actor {
 
     /**
      * 根据账户查找拥有的所有角色Role
-     *
      * @param userAccount
      * @return
      */
@@ -187,7 +177,6 @@ public class User extends Actor {
 
     /**
      * 根据账户查找拥有的所有权限Permission
-     *
      * @param userAccount
      * @return
      */
@@ -205,7 +194,6 @@ public class User extends Actor {
 
     /**
      * TODO 校验规则~~正则表达式
-     *
      * @param userAccount
      * @return
      */
@@ -218,7 +206,6 @@ public class User extends Actor {
 
     /**
      * TODO 校验规则~~正则表达式
-     *
      * @param email
      * @return
      */
@@ -231,7 +218,6 @@ public class User extends Actor {
 
     /**
      * TODO 校验规则~~正则表达式
-     *
      * @param telePhone
      * @return
      */
@@ -244,7 +230,6 @@ public class User extends Actor {
 
     /**
      * 检查仓储中用户是否有数据。
-     *
      * @return
      */
     public static boolean hasUserExisted() {
@@ -312,7 +297,7 @@ public class User extends Actor {
     }
 
     private void checkTelePhone(String telePhone) {
-        Assert.notBlank(telePhone,"telePhone cannot be empty.");
+        Assert.notBlank(telePhone, "telePhone cannot be empty.");
     }
 
     @Override
