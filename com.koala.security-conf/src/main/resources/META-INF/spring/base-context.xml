@@ -2,15 +2,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
-
+    <!-- 允许使用注解-->
     <context:annotation-config/>
+
+    <!-- 进行扫包-->
     <context:component-scan base-package="org.openkoala,com.koala.security">
-        <context:exclude-filter type="annotation"
-                                expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter
+                type="annotation"
+                expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+
+    <!-- 进行properties配置文件的扫描-->
     <context:property-placeholder location="classpath*:META-INF/props/*.properties" ignore-unresolvable="true"/>
 
 </beans>
