@@ -1,6 +1,7 @@
 package org.openkoala.security.shiro.realm;
 
 import com.google.common.collect.Sets;
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.dayatang.domain.InstanceFactory;
 import org.openkoala.koala.commons.InvokeResult;

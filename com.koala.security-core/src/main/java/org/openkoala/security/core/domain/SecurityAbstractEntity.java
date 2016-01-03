@@ -34,12 +34,10 @@ public abstract class SecurityAbstractEntity implements Entity {
     @Column(name = "VERSION")
     private int version;
 
-
     /**
      * 获得实体的标识
      * @return 实体的标识
      */
-
     public Long getId() {
         return id;
     }

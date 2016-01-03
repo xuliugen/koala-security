@@ -200,10 +200,12 @@ public class SecurityAccessFacadeImpl implements SecurityAccessFacade {
         StringBuilder jpql = new StringBuilder("SELECT NEW org.openkoala.security.facade.dto.RoleDTO(_role.id, _role.name, _role.description) FROM Role _role where 1 = 1");
         assembleRoleJpqlAndConditionValues(queryRoleCondition, jpql, "_role", conditionVals);
 
-        return getQueryChannelService().createJpqlQuery(jpql.toString())
+        Page<RoleDTO> pageDto = getQueryChannelService().createJpqlQuery(jpql.toString())
                 .setParameters(conditionVals)
                 .setPage(pageIndex, pageSize)
                 .pagedList();
+
+        return pageDto;
     }
 
     @Override
